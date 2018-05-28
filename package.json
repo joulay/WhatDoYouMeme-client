@@ -16,9 +16,11 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_API_BASE_URL=https://whatdoyoumeme.herokuapp.com/api react-scripts start",
+    "build": "REACT_APP_API_BASE_URL=https://whatdoyoumeme.herokuapp.com/api react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && netlify deploy -p ./build"
+
   }
 }
