@@ -19,7 +19,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <h1>WHAT DO YOU MEME?</h1>
+                <h1>PIC</h1>
                 {logOutButton}
             </div>
         );
