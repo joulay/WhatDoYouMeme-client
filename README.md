@@ -1,6 +1,6 @@
 # WHAT DO YOU MEME
 
-<a href="#">What Do You Meme</a> utilizes space repetition, a learning technique that utilizes increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. Enjoy learning the name of some dank memes!
+<a href="#">What Do You Meme</a> utilizes space repetition, a learning technique that utilizes increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. Enjoy learning the name of some of your favorite memes!
 
 ### Technologies: 
 - Javascript 
