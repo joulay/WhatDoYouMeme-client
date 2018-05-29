@@ -35,7 +35,7 @@ export const checkAnswerError = error => ({
 
 
 export const fetchQuestion = () => (dispatch, getState) => {
-    fetch(`${API_BASE_URL}/user/question`, {
+    fetch(`${API_BASE_URL}/users`, {  //endpoint
       method: "GET",
       headers: {
         "Content-Type": "application/json",
