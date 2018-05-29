@@ -17,6 +17,13 @@ export const fetchQuestionError = error => ({
   error
 });
 
+export const FETCH_LOAD_SUCCESS = "FETCH_LOAD_SUCCESS";
+export const fetchLoadSuccess = (question) => {
+  console.log(question)
+  return {type: FETCH_LOAD_SUCCESS,
+  question}
+};
+
 export const CHECK_ANSWER_REQUEST = 'CHECK_ANSWER_REQUEST';
 export const checkAnswerRequest = () => ({
     type: CHECK_ANSWER_REQUEST
@@ -59,6 +66,30 @@ export const fetchQuestion = () => (dispatch, getState) => {
         dispatch(fetchQuestionError(err));
       });
 };
+
+export const fetchLoad = (questionId) => (dispatch, getState) => {
+    console.log(questionId)
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/question/${questionId}`, {  
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(res => {
+      dispatch(fetchLoadSuccess(res));
+    })
+    // .catch(err => {
+    //   dispatch(fetchQuestionError(err));
+    // });
+}
 
 export const checkAnswer = (input) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
