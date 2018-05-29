@@ -35,10 +35,12 @@ export const checkAnswerError = error => ({
 
 
 export const fetchQuestion = () => (dispatch, getState) => {
-    fetch(`${API_BASE_URL}/users`, {  //endpoint
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/users`, {  
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`
       }
     })
       .then(res => {
@@ -49,7 +51,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
       })
       .then(res => {
         let question = {
-          question: '' //url
+          question: res.question[0] 
         }
         dispatch(fetchQuestionSuccess(question));
       })
@@ -59,11 +61,13 @@ export const fetchQuestion = () => (dispatch, getState) => {
 };
 
 export const checkAnswer = (input) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   dispatch(checkAnswerRequest());
   return fetch (`${API_BASE_URL}`, { //figure out endpoint
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
+        Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify({
         input

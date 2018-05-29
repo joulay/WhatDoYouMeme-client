@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 // import {fetchProtectedData} from '../actions/protected-data';
 import { fetchQuestion } from '../actions/question';
-import Questionform from './questionForm';
+import QuestionForm from './questionForm';
  
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -20,10 +20,10 @@ export class Dashboard extends React.Component {
                 {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
                 </div> */}
-                <Questionform />
+                <QuestionForm />
             </div>
-        );
-    }
+        );  
+    }   
 }
 
 const mapStateToProps = state => {
