@@ -20,18 +20,18 @@ export const fetchQuestionError = error => ({
 export const CHECK_ANSWER_REQUEST = 'CHECK_ANSWER_REQUEST';
 export const checkAnswerRequest = () => ({
     type: CHECK_ANSWER_REQUEST
-})
+});
 
 export const CHECK_ANSWER_SUCCESS = 'CHECK_ANSWER_SUCCESS';
 export const checkAnswerSuccess = () => ({
     type: CHECK_ANSWER_SUCCESS
-})
+});
 
 export const CHECK_ANSWER_ERROR = 'CHECK_ANSWER_ERROR';
 export const checkAnswerError = error => ({
     type: CHECK_ANSWER_ERROR,
     error
-})
+});
 
 
 export const fetchQuestion = () => (dispatch, getState) => {
@@ -86,4 +86,4 @@ export const checkAnswer = (input) => (dispatch, getState) => {
   .catch(err =>
     dispatch(checkAnswerError(err))
   );
-}
+};

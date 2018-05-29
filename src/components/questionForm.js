@@ -4,7 +4,7 @@ export default function QuestionForm(props) {
     return (
         <div className="question-form">
             <div className='image'>
-                <img src={this.props.image} alt="meme"/>
+                <img src={props.image} alt="meme"/>
             </div>
             <form 
                 // onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
