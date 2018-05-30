@@ -1,3 +1,13 @@
+.image{
+  overflow: hidden;
+  margin: 2em auto;
+  
+}
+
 .meme-pics{
-  max-width: 50%;
+  max-width: 100%;
+  width: 400px;
+  height: 400px;
+  box-shadow: 10px 10px 10px grey;
+
 }
