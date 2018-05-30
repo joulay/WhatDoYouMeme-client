@@ -1,0 +1,11 @@
+.header-bar{
+  float: right
+}
+.banner{
+  text-align: center;
+}
+
+.logout-button{
+  float: right;
+  margin-right: 0.2em;
+}

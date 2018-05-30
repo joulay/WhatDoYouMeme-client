@@ -18,7 +18,7 @@ export function LandingPage(props) {
             They are a viral phenomenon that evolve analogous to that of a biological evolution.<br/>
             Essentially internet greatness. Enjoy learning the names of some dank memes with space repitition</p>
             <LoginForm />
-            <Link to="/register">Register</Link>
+            <Link  to="/register">Register</Link>
         </div>
     );
 }
