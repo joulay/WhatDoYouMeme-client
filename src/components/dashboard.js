@@ -31,6 +31,7 @@ export class Dashboard extends React.Component {
         const userInput = input.toLowerCase();
         console.log(userInput);
         const dbAnswer = this.props.currentQuestion.answer.toLowerCase();
+        console.log(dbAnswer);
         if(userInput === dbAnswer) {
             this.setState({response: "YEEEEEEEEE"})
         } else {
@@ -45,14 +46,13 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-                {/* <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div> */}
+
                 <div className="img-question">
                 <QuestionForm onSubmit={(e)=>this.onSubmit(e)}
                     proploadNext={this.loadNext}
                     propQuestion={this.props.currentQuestion}/>
-                    </div>
+                </div>
+                <div>{this.state.response}</div>
             </div>
         );
     }
