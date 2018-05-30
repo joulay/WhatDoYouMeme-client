@@ -2,9 +2,7 @@ import React from 'react';
 import './questionform.css'
 
 export default function QuestionForm(props) {
-console.log('​QuestionForm -> props', props);
-        
-        console.log('​QuestionForm -> ', props.img_url);
+    
     return (
         <div className="question-form">
             <div className='image'>
