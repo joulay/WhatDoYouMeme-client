@@ -18,11 +18,16 @@ export const fetchQuestionError = error => ({
 });
 
 export const FETCH_LOAD_SUCCESS = "FETCH_LOAD_SUCCESS";
-export const fetchLoadSuccess = (question) => {
-  console.log(question)
-  return {type: FETCH_LOAD_SUCCESS,
-  question}
-};
+export const fetchLoadSuccess = (question) => ({
+  type: FETCH_LOAD_SUCCESS,
+  question
+});
+
+export const FETCH_LOAD_ERROR = "FETCH_LOAD_ERROR";
+export const fetchLoadError = error => ({
+  type: FETCH_LOAD_ERROR,
+  error
+});
 
 export const CHECK_ANSWER_REQUEST = 'CHECK_ANSWER_REQUEST';
 export const checkAnswerRequest = () => ({
@@ -68,7 +73,6 @@ export const fetchQuestion = () => (dispatch, getState) => {
 };
 
 export const fetchLoad = (questionId) => (dispatch, getState) => {
-    console.log(questionId)
     const authToken = getState().auth.authToken;
     fetch(`${API_BASE_URL}/question/${questionId}`, {  
       method: "GET",
@@ -86,9 +90,9 @@ export const fetchLoad = (questionId) => (dispatch, getState) => {
     .then(res => {
       dispatch(fetchLoadSuccess(res));
     })
-    // .catch(err => {
-    //   dispatch(fetchQuestionError(err));
-    // });
+    .catch(err => {
+      dispatch(fetchLoadError(err));
+    });
 }
 
 export const checkAnswer = (input) => (dispatch, getState) => {
