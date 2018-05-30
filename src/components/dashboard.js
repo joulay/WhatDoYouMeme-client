@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 // import {fetchProtectedData} from '../actions/protected-data';
 import { fetchQuestion, fetchLoad } from '../actions/question';
@@ -9,7 +9,8 @@ export class Dashboard extends React.Component {
     constructor(props) {
         super(props)
             this.state={
-                currentQuestion:0
+                currentQuestion:0,
+                response: ""
             }
             this.loadNext=this.loadNext.bind(this) //take load next to place as same level as everything else
     }
@@ -23,6 +24,16 @@ export class Dashboard extends React.Component {
         this.setState({
             currentQuestion: this.state.currentQuestion+1
         })
+    }
+
+    onSubmit(input) {
+        const userInput = input.toLowerCase();
+        const dbAnswer = this.props.currentQuestion.answer.toLowerCase();
+        if(userInput === dbAnswer) {
+            this.setState({response: "YEEEEEEEEE"})
+        } else {
+            this.setState({response: `${dbAnswer}`})
+        }
     }
 
     render() {
