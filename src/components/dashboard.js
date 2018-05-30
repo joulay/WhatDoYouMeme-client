@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 // import {fetchProtectedData} from '../actions/protected-data';
-import {fetchQuestion, fetchLoad} from '../actions/question';
+import {fetchQuestion, fetchLoad, checkAnswer} from '../actions/question';
 import QuestionForm from './questionForm';
 import './dashboard.css'
 
@@ -37,6 +37,7 @@ export class Dashboard extends React.Component {
         } else {
             this.setState({response: `${dbAnswer}`})
         }
+        this.props.dispatch(checkAnswer(userInput))
     }
 
     render() {
@@ -64,7 +65,7 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username, name: `${currentUser.fullname}`,
         // protectedData: state.protectedData.data
-        questionArray: state.auth.currentUser.question,
+        questionArray: state.auth.currentUser.questions,
         currentQuestion: state.question.currentQuestion
     };
 };

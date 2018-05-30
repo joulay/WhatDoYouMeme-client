@@ -62,6 +62,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
         return res.json();
       })
       .then(res => {
+        console.log(res)
         let question = {
           question: res.question[0] 
         }
@@ -74,7 +75,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
 
 export const fetchLoad = (questionId) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    fetch(`${API_BASE_URL}/question/${questionId}`, {  
+    fetch(`${API_BASE_URL}/question/${questionId._id}`, {  
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +99,7 @@ export const fetchLoad = (questionId) => (dispatch, getState) => {
 export const checkAnswer = (input) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(checkAnswerRequest());
-  return fetch (`${API_BASE_URL}`, { //figure out endpoint
+  return fetch (`${API_BASE_URL}/question/update`, { //figure out endpoint
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
@@ -115,8 +116,9 @@ export const checkAnswer = (input) => (dispatch, getState) => {
       return res.json()
   })
   .then(res => {
+    
     let question = {
-      question: '', //url 
+      question: res.question[0], 
       answer: res.answer
     }
     dispatch(checkAnswerSuccess());
