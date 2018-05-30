@@ -11,8 +11,9 @@ export default function QuestionForm(props) {
             <form 
                 onSubmit={(event) =>{ 
                     event.preventDefault()
-                    this.props.onClick(document.getElementById('answer').value)}}
+                    this.onSubmit(event)}}
                 className="form">
+                
                 <input type="text" id="answer"placeholder="name this meme"/>
                 <button type="submit">+</button>
             </form>
