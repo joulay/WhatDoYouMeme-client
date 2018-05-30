@@ -11,10 +11,10 @@ export default function QuestionForm(props) {
             <form 
                 onSubmit={(event) =>{ 
                     event.preventDefault()
-                    this.onSubmit(event)}}
+                    props.onSubmit(event.target.answer.value)}}
                 className="form">
                 
-                <input type="text" id="answer"placeholder="name this meme"/>
+                <input type="text" name="answer" id="answer" placeholder="name this meme"/>
                 <button type="submit">+</button>
             </form>
             <button onClick={()=>props.proploadNext()}>NEXT</button>

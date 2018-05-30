@@ -5,6 +5,7 @@ import requiresLogin from './requires-login';
 import {fetchQuestion, fetchLoad} from '../actions/question';
 import QuestionForm from './questionForm';
 import './dashboard.css'
+
 export class Dashboard extends React.Component {
     constructor(props) {
         super(props)
@@ -16,23 +17,20 @@ export class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        this
-            .props
-            .dispatch(fetchQuestion());
+        this.props.dispatch(fetchQuestion());
     }
 
     loadNext() {
-        this
-            .props
-            .dispatch(fetchLoad(this.props.questionArray[this.state.currentQuestion]));
+        this.props.dispatch(fetchLoad(this.props.questionArray[this.state.currentQuestion]));
         this.setState({
             currentQuestion: this.state.currentQuestion + 1
         })
     }
 
     onSubmit(input) {
-        const userInput = input.value.toLowerCase().split('');
-        const dbAnswer = this.props.currentQuestion.answer.toLowerCase().split('');
+        const userInput = input.toLowerCase();
+        console.log(userInput);
+        const dbAnswer = this.props.currentQuestion.answer.toLowerCase();
         if(userInput === dbAnswer) {
             this.setState({response: "YEEEEEEEEE"})
         } else {
@@ -51,7 +49,7 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.protectedData}
                 </div> */}
                 <div className="img-question">
-                <QuestionForm
+                <QuestionForm onSubmit={(e)=>this.onSubmit(e)}
                     proploadNext={this.loadNext}
                     propQuestion={this.props.currentQuestion}/>
                     </div>
