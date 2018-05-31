@@ -108,12 +108,14 @@ export const checkAnswer = (input) => (dispatch, getState) => {
         'Content-Type':'application/json',
         Authorization: `Bearer ${authToken}`
       },
+      
       body: JSON.stringify({
         input
       })
+      
   })
   .then(res => {
-    console.log('alskjdalskjdalsjd', res.body)
+    // console.log('alskjdalskjdalsjd', res.body)
       if(!res.ok) {
         throw new Error(res.statusTest)
       }

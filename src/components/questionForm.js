@@ -11,7 +11,7 @@ export default function QuestionForm(props) {
             <form 
                 onSubmit={(event) =>{ 
                     event.preventDefault()
-                    props.onSubmit({answer: event.target.answer.value, question:props.propQuestion.img_url})}}
+                    props.onSubmit(event.target.answer.value)}}
                 className="form">
                 
                 <input type="text" name="answer" id="answer" placeholder="name this meme"/>
