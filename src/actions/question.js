@@ -102,7 +102,7 @@ export const checkAnswer = (input) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(checkAnswerRequest());
 
-  return fetch (`${API_BASE_URL}/question/update`, { //figure out endpoint
+  return fetch (`${API_BASE_URL}/question/update`, { 
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
