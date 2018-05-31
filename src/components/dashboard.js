@@ -28,15 +28,19 @@ export class Dashboard extends React.Component {
         })
     }
 
-    onSubmit(input) {
-        const userInput = input.toLowerCase().trim();
-        const dbAnswer = this.props.currentQuestion.answer.toLowerCase().trim();
-        if(userInput === dbAnswer) {
-            this.setState({response: "YEEEEEEEEE! Correct"})
-        } else {
-            this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
-        }
-        this.props.dispatch(checkAnswer(userInput))
+    async onSubmit(input) {
+        // console.log('als;kdjalkjsd;laksjd;alksjdad', input);
+        // const userInput = input.toLowerCase().trim();
+        // const dbAnswer = this.props.currentQuestion.answer.toLowerCase().trim();
+        // if(userInput === dbAnswer) {
+        //     this.setState({response: "YEEEEEEEEE! Correct"})
+        // } else {
+        //     this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
+        // }
+        await this.props.dispatch(checkAnswer(input))
+        await this.props.dispatch(fetchQuestion());
+        // ******need to display information and set it into state
+        
     }
 
     render() {

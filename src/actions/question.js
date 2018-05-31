@@ -66,6 +66,8 @@ export const fetchQuestion = () => (dispatch, getState) => {
         let question = {
           question: res.question[0] 
         }
+        //***sort order of questions by ascending order of memory strength
+        //lodash b4 dispatch
         dispatch(fetchQuestionSuccess(question));
       })
       .catch(err => {
@@ -99,6 +101,7 @@ export const fetchLoad = (questionId) => (dispatch, getState) => {
 export const checkAnswer = (input) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(checkAnswerRequest());
+
   return fetch (`${API_BASE_URL}/question/update`, { //figure out endpoint
       method: 'POST',
       headers: {
@@ -110,19 +113,21 @@ export const checkAnswer = (input) => (dispatch, getState) => {
       })
   })
   .then(res => {
+    console.log('alskjdalskjdalsjd', res.body)
       if(!res.ok) {
         throw new Error(res.statusTest)
       }
       return res.json()
   })
   .then(res => {
-    
+    console.log(res);
     let question = {
       question: res.question[0], 
       answer: res.answer
     }
     dispatch(checkAnswerSuccess());
     dispatch(fetchQuestionSuccess(question))
+    return res.json(res);
   })
   .catch(err =>
     dispatch(checkAnswerError(err))
