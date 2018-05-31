@@ -10,14 +10,15 @@ export class Dashboard extends React.Component {
     constructor(props) {
         super(props)
             this.state={
-                currentQuestion:0,
+                currentQuestion: 0,
                 response: ""
             }
             this.loadNext=this.loadNext.bind(this) //take load next to place as same level as everything else
     }
-
-    componentDidMount() {
-        this.props.dispatch(fetchQuestion());
+    
+    async componentDidMount() { 
+        await this.props.dispatch(fetchQuestion());
+        await this.loadNext();
     }
 
     loadNext() {
@@ -28,14 +29,12 @@ export class Dashboard extends React.Component {
     }
 
     onSubmit(input) {
-        const userInput = input.toLowerCase();
-        console.log(userInput);
-        const dbAnswer = this.props.currentQuestion.answer.toLowerCase();
-        console.log(dbAnswer);
+        const userInput = input.toLowerCase().trim();
+        const dbAnswer = this.props.currentQuestion.answer.toLowerCase().trim();
         if(userInput === dbAnswer) {
-            this.setState({response: "YEEEEEEEEE"})
+            this.setState({response: "YEEEEEEEEE! Correct"})
         } else {
-            this.setState({response: `${dbAnswer}`})
+            this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
         }
         this.props.dispatch(checkAnswer(userInput))
     }
@@ -53,7 +52,7 @@ export class Dashboard extends React.Component {
                     proploadNext={this.loadNext}
                     propQuestion={this.props.currentQuestion}/>
                 </div>
-                <div>{this.state.response}</div>
+                <div className="response">{this.state.response}</div>
             </div>
         );
     }
