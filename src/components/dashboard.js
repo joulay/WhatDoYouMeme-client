@@ -27,9 +27,11 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchLoad(this.props.questionArray[this.state.currentQuestion]));
         this.setState({ //not async so using this as argument 
             currentQuestion: this.state.currentQuestion + 1
+            
         // },()=> {
         //     //called when state is updated
         })
+        
 
     }
 

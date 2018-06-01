@@ -5,7 +5,8 @@ export default class QuestionForm extends React.Component {
     constructor(props) {
         super(props)
         this.state= {
-            isHidden:true
+            isHidden:true,
+            input:""
         }
     }
     showNext(){
@@ -13,7 +14,30 @@ export default class QuestionForm extends React.Component {
             isHidden: false
         })
     }
+    handleChange=(e)=> {    
+        this.setState({     
+            input: e.target.value   
+        }) 
+    }
+
+    empty(){
+        this.setState({
+            input:""
+        })
+    }
+
+    hideButton(){
+        this.setState({
+            isHidden:true
+        })
+    }
+
+    onSubmit(input) {
+        
+    }
+
     render() {
+       
     return (
         <div className="question-form">
             <div className='image'>
@@ -25,12 +49,16 @@ export default class QuestionForm extends React.Component {
                     this.props.onSubmit(event.target.answer.value)}}
                 className="form">
                 
-                <input type="text" name="answer" id="answer" placeholder="name this meme"/>
+                <input type="text" 
+                    name="answer" 
+                    id="answer" 
+                    value={this.state.input} onChange={(e)=>{this.handleChange(e)}} placeholder="name this meme"/>
                 <button onClick={()=>this.showNext()}type="submit">+</button>
             </form>
             <br/>
             <br/>
-            <button onClick={()=>this.props.proploadNext()}>NEXT</button>
+            {this.state.isHidden ?  "" : <button onClick={()=>{this.props.proploadNext();this.empty();this.hideButton();}}>NEXT</button>}
+
         </div>
 
     )
