@@ -1,9 +1,10 @@
 import React from 'react';
 import './questionform.css'
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+// import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 const style = {
     marginRight: 20,
@@ -60,18 +61,21 @@ export default class QuestionForm extends React.Component {
                 <TextField 
                     hintText="name this meme"
                     floatingLabelText="Name"
-                    type="password"
                     /><br />
                 <input type="text" 
                     name="answer" 
                     id="answer" 
                     value={this.state.input} onChange={(e)=>{this.handleChange(e)}} placeholder="name this meme"/>
-                <FloatingActionButton style={style} 
+                <FlatButton label="submit" 
+                    mini={true} 
+                    onClick={()=>this.showNext()} 
+                    type="submit"/>
+                {/* <FloatingActionButton style={style} 
                     mini={true} 
                     onClick={()=>this.showNext()} 
                     type="submit">
                     <ContentAdd />
-                </FloatingActionButton>
+                </FloatingActionButton> */}
             </form>
             <br/>
             <br/>

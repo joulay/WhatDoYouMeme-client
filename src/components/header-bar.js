@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import './header.css'
 
 const style = {
@@ -22,7 +23,7 @@ export class HeaderBar extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <RaisedButton
+                <FlatButton
                     label="Log out" 
                     primary={true} 
                     style={style} 
@@ -40,7 +41,6 @@ export class HeaderBar extends React.Component {
                 <div className="logout-button">
                     {logOutButton}
                 </div>
-
             </div>
         );
     }
