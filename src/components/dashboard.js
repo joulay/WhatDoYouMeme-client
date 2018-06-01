@@ -12,7 +12,8 @@ export class Dashboard extends React.Component {
         super(props)
             this.state={
                 currentQuestion: 0,
-                response: ""
+                response: "", 
+                input: ""
             }
             this.loadNext=this.loadNext.bind(this) //take load next to place as same level as everything else
     }
@@ -24,20 +25,23 @@ export class Dashboard extends React.Component {
 
     loadNext() {
         this.props.dispatch(fetchLoad(this.props.questionArray[this.state.currentQuestion]));
-        this.setState({
+        this.setState({ //not async so using this as argument 
             currentQuestion: this.state.currentQuestion + 1
+        // },()=> {
+        //     //called when state is updated
         })
+
     }
 
     async onSubmit(input) {
         // console.log('als;kdjalkjsd;laksjd;alksjdad', input);
-        // const userInput = input.toLowerCase().trim();
-        // const dbAnswer = this.props.currentQuestion.answer.toLowerCase().trim();
-        // if(userInput === dbAnswer) {
-        //     this.setState({response: "YEEEEEEEEE! Correct"})
-        // } else {
-        //     this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
-        // }
+        const userInput = input.toLowerCase().trim();
+        const dbAnswer = this.props.currentQuestion.answer.toLowerCase().trim();
+        if(userInput === dbAnswer) {
+            this.setState({response: "YEEEEEEEEE! Correct"})
+        } else {
+            this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
+        }
         await this.props.dispatch(checkAnswer(input))
         await this.props.dispatch(fetchQuestion()); //every time user responds, re fetchQuestions
 

@@ -13,7 +13,6 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>WHAT DO YOU MEME?</h2>
             <p>A meme acts as a unit for carrying cultural ideas and references. <br/>
             They are a viral phenomenon that evolve analogous to that of a biological evolution.<br/>
             Essentially internet greatness. Enjoy learning the names of some dank memes with space repitition</p>

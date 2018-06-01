@@ -62,10 +62,11 @@ export const fetchQuestion = () => (dispatch, getState) => {
         return res.json();
       })
       .then(res => {
-        console.log(res)
+        console.log('%%%%%%%%%%%',res)
         let question = {
-          question: res.question[0] 
+          question: res.questions[0] 
         }
+        console.log('********',question)
         //***sort order of questions by ascending order of memory strength
         //lodash b4 dispatch
         dispatch(fetchQuestionSuccess(question));
@@ -122,7 +123,7 @@ export const checkAnswer = (input) => (dispatch, getState) => {
       return res.json()
   })
   .then(res => {
-    console.log(res);
+    // console.log(res);
     let question = {
       question: res.question[0], 
       answer: res.answer

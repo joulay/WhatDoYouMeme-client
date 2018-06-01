@@ -1,28 +1,40 @@
 import React from 'react';
 import './questionform.css'
 
-export default function QuestionForm(props) {
-    
+export default class QuestionForm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state= {
+            isHidden:true
+        }
+    }
+    showNext(){
+        this.setState({
+            isHidden: false
+        })
+    }
+    render() {
     return (
         <div className="question-form">
             <div className='image'>
-                <img className="meme-pics" src={props.propQuestion.img_url} alt="meme"/>
+                <img className="meme-pics" src={this.props.propQuestion.img_url} alt="meme"/>
             </div>
             <form 
                 onSubmit={(event) =>{ 
                     event.preventDefault()
-                    props.onSubmit(event.target.answer.value)}}
+                    this.props.onSubmit(event.target.answer.value)}}
                 className="form">
                 
                 <input type="text" name="answer" id="answer" placeholder="name this meme"/>
-                <button type="submit">+</button>
+                <button onClick={()=>this.showNext()}type="submit">+</button>
             </form>
             <br/>
             <br/>
-            <button onClick={()=>props.proploadNext()}>NEXT</button>
+            <button onClick={()=>this.props.proploadNext()}>NEXT</button>
         </div>
 
     )
+    }
 }
 
 //**** state for isHidden = true
