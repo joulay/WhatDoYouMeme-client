@@ -54,9 +54,9 @@ export class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
-                    Username: {this.props.username}
+                    oh haaay {this.props.username}
                 </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
+                {/* <div className="dashboard-name">Name: {this.props.name}</div> */}
 
                 <div className="img-question">
                 <QuestionForm onSubmit={(e)=>this.onSubmit(e)}

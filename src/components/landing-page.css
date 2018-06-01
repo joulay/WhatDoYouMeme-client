@@ -1,5 +1,6 @@
-.home {
-    /* color: white; */
+.link{
+    display: flex;
+    justify-content: center;
 }
 
 .home p {
@@ -10,3 +11,6 @@
     text-align: center;
 }
 
+.home {
+    padding: 5% 0;
+}

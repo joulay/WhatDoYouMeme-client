@@ -31,20 +31,35 @@ export const fetchLoadError = error => ({
 
 export const CHECK_ANSWER_REQUEST = 'CHECK_ANSWER_REQUEST';
 export const checkAnswerRequest = () => ({
-    type: CHECK_ANSWER_REQUEST
+  type: CHECK_ANSWER_REQUEST
 });
 
 export const CHECK_ANSWER_SUCCESS = 'CHECK_ANSWER_SUCCESS';
 export const checkAnswerSuccess = () => ({
-    type: CHECK_ANSWER_SUCCESS
+  type: CHECK_ANSWER_SUCCESS
 });
 
 export const CHECK_ANSWER_ERROR = 'CHECK_ANSWER_ERROR';
 export const checkAnswerError = error => ({
-    type: CHECK_ANSWER_ERROR,
-    error
+  type: CHECK_ANSWER_ERROR,
+  error
 });
 
+export const GET_SCORE_REQUEST = 'GET_SCORE_REQUEST';
+export const getScoreRequest = () => ({
+  type: GET_SCORE_REQUEST
+});
+
+export const GET_SCORE_SUCCESS = 'GET_SCORE_SUCCESS';
+export const getScoreSuccess = () => ({
+  type: GET_SCORE_SUCCESS
+});
+
+export const GET_SCORE_ERROR = 'GET_SCORE_ERROR';
+export const getScoreError = error => ({
+  type: GET_SCORE_ERROR,
+  error
+});
 
 export const fetchQuestion = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -62,13 +77,10 @@ export const fetchQuestion = () => (dispatch, getState) => {
         return res.json();
       })
       .then(res => {
-        console.log('%%%%%%%%%%%',res)
         let question = {
           question: res.questions[0] 
         }
         console.log('********',question)
-        //***sort order of questions by ascending order of memory strength
-        //lodash b4 dispatch
         dispatch(fetchQuestionSuccess(question));
       })
       .catch(err => {
@@ -136,3 +148,14 @@ export const checkAnswer = (input) => (dispatch, getState) => {
     dispatch(checkAnswerError(err))
   );
 };
+
+// export const getScore = () => (dispatch, getState) => {
+//   const authToken = getState().auth.authToken;
+//   fetch(`${API_BASE_URL}/question/update`, {  
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Bearer ${authToken}`
+//     }
+//   })
+// }

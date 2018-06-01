@@ -4,7 +4,7 @@ const initialState = {
 	question: [],
 	currentQuestion: {},
 	loading: false,
-	error: null
+	error: null,
 };
 
 export default function questionReducer(state = initialState, action) {

@@ -2,7 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import RaisedButton from 'material-ui/RaisedButton';
 import './header.css'
+
+const style = {
+    margin: 12,
+  };
+
 export class HeaderBar extends React.Component {
     logOut() {
         this
@@ -16,17 +22,22 @@ export class HeaderBar extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button className="logout-button" onClick={() => this.logOut()}>Log out</button>
+                <RaisedButton
+                    label="Log out" 
+                    primary={true} 
+                    style={style} 
+                    type="submit"
+                    onClick={() => this.logOut()}
+                />
             );
         }
         return (
-            <div>
+            <div className="header">
                 <header>
-                    <h1 className="banner">What do you MEME ?
+                    <h1 className="banner">what do you MEME?
                     </h1>
                 </header>
                 <div className="logout-button">
-                    {/* <h1>PIC</h1> */}
                     {logOutButton}
                 </div>
 

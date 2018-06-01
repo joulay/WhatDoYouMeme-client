@@ -3,7 +3,13 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import RaisedButton from 'material-ui/RaisedButton';
 import './login-form.css'
+
+const style = {
+    margin: 12,
+  };
+  
 export class LoginForm extends React.Component {
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password));
@@ -41,9 +47,14 @@ export class LoginForm extends React.Component {
                     id="password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
+                <RaisedButton
+                    label="Log in" 
+                    primary={true} 
+                    style={style} 
+                    type="submit"
+                    disabled={this.props.pristine || this.props.submitting}
+                />
+   
             </form>
         );
     }

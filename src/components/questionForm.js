@@ -1,5 +1,14 @@
 import React from 'react';
 import './questionform.css'
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+    marginRight: 20,
+  };
+
 
 export default class QuestionForm extends React.Component {
     constructor(props) {
@@ -48,22 +57,32 @@ export default class QuestionForm extends React.Component {
                     event.preventDefault()
                     this.props.onSubmit(event.target.answer.value)}}
                 className="form">
-                
+                <TextField 
+                    hintText="name this meme"
+                    floatingLabelText="Name"
+                    type="password"
+                    /><br />
                 <input type="text" 
                     name="answer" 
                     id="answer" 
                     value={this.state.input} onChange={(e)=>{this.handleChange(e)}} placeholder="name this meme"/>
-                <button onClick={()=>this.showNext()}type="submit">+</button>
+                <FloatingActionButton style={style} 
+                    mini={true} 
+                    onClick={()=>this.showNext()} 
+                    type="submit">
+                    <ContentAdd />
+                </FloatingActionButton>
             </form>
             <br/>
             <br/>
-            {this.state.isHidden ?  "" : <button onClick={()=>{this.props.proploadNext();this.empty();this.hideButton();}}>NEXT</button>}
-
+            {this.state.isHidden ?  "" : <RaisedButton label="NEXT" primary={true} style={style} onClick={()=>{this.props.proploadNext();this.empty();this.hideButton();}}/>}
+            
         </div>
 
     )
     }
 }
+
 
 //**** state for isHidden = true
 //onClick for + button changing isHidden = false
