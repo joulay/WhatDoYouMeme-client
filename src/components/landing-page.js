@@ -21,7 +21,7 @@ export function LandingPage(props) {
             <div className="link">
                <Link to="/register">Register</Link>
                <br/>
-                <img src="/media/yaoMing.jpg" alt="yao ming" />>
+                {/* <img src="media/yaoMing.jpg" alt="yao ming" /> */}
             </div>
         </div>
     );
