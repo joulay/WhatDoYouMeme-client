@@ -1,5 +1,6 @@
 import React from 'react';
 import './questionform.css'
+import { connect } from 'react-redux';
 // import FloatingActionButton from 'material-ui/FloatingActionButton';
 // import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
@@ -11,7 +12,7 @@ const style = {
   };
 
 
-export default class QuestionForm extends React.Component {
+class QuestionForm extends React.Component {
     constructor(props) {
         super(props)
         this.state= {
@@ -47,7 +48,7 @@ export default class QuestionForm extends React.Component {
     }
 
     render() {
-       
+       console.log('-------------------------------------------------[props]',this.props)
     return (
         <div className="question-form">
             <div className='image'>
@@ -87,7 +88,12 @@ export default class QuestionForm extends React.Component {
     }
 }
 
-
-//**** state for isHidden = true
-//onClick for + button changing isHidden = false
-//next if this.state === idHidden, show button 
+const mapStateToProps = (state) =>{
+    console.log('this%%%%%%%%%%%%%%%%%%%%',state)
+    return {
+        username: state.auth.currentUser.username,
+        // img_url:state.question.question.questions.questions[0]
+        
+    }
+}
+export default connect(mapStateToProps)(QuestionForm)

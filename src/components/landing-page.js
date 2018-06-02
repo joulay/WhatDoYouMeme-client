@@ -20,7 +20,8 @@ export function LandingPage(props) {
             <LoginForm />
             <div className="link">
                <Link to="/register">Register</Link>
-    
+               <br/>
+                <img src="/media/yaoMing.jpg" alt="yao ming" />>
             </div>
         </div>
     );

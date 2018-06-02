@@ -12,8 +12,8 @@ export function Score(props) {
 
 const mapStateToProps = state => {
     return {
-        correct: state.auth.currentUser.score,
-        incorrect: state.auth.currentUser.wrongTally
+        correct: state.question.currentQuestion.score,
+        incorrect: state.question.currentQuestion.wrongTally
     }
 }
 

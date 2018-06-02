@@ -77,11 +77,12 @@ export const fetchQuestion = () => (dispatch, getState) => {
         return res.json();
       })
       .then(res => {
-        let question = {
-          question: res.questions[0] 
-        }
-        console.log('********',question)
-        dispatch(fetchQuestionSuccess(question));
+        // let question = {
+        //   question: res.questions[0],
+        // }
+        console.log('********',res)
+        dispatch(fetchQuestionSuccess(res));
+
       })
       .catch(err => {
         dispatch(fetchQuestionError(err));
@@ -149,13 +150,3 @@ export const checkAnswer = (input) => (dispatch, getState) => {
   );
 };
 
-// export const getScore = () => (dispatch, getState) => {
-//   const authToken = getState().auth.authToken;
-//   fetch(`${API_BASE_URL}/question/update`, {  
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${authToken}`
-//     }
-//   })
-// }

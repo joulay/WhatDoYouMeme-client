@@ -5,6 +5,9 @@ const initialState = {
 	currentQuestion: {},
 	loading: false,
 	error: null,
+	// wrongTally: "",
+	// score: "",
+
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -16,7 +19,7 @@ export default function questionReducer(state = initialState, action) {
 	else if (action.type === actions.FETCH_QUESTION_SUCCESS) {
 		return Object.assign({}, state, {
 			loading: false,
-			question: action.question
+			currentQuestion: action.question
 		});
     }
 	else if (action.type === actions.FETCH_QUESTION_ERROR) {
@@ -28,6 +31,8 @@ export default function questionReducer(state = initialState, action) {
 	else if (action.type === actions.FETCH_LOAD_SUCCESS) {
 		return Object.assign({}, state, {
 			currentQuestion: action.question
+			// wrongTally: action.question.wrongTally,
+			// score: action.question.score
 		});
 	}
 	else if (action.type === actions.CHECK_ANSWER_REQUEST) {
@@ -49,3 +54,8 @@ export default function questionReducer(state = initialState, action) {
     return state;     
 }
 
+
+//find state where score is stored  where score gets rendered 
+//process action in where we want score
+//process action from server
+//and update in state 
