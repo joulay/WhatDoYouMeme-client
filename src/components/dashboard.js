@@ -37,8 +37,8 @@ export class Dashboard extends React.Component {
 
     async onSubmit(input) {
         // console.log('als;kdjalkjsd;laksjd;alksjdad', input);
-        const userInput = input.toLowerCase().trim();
-        const dbAnswer = this.props.currentQuestion.answer.toLowerCase().trim();
+        const userInput = input
+        const dbAnswer = this.props.currentQuestion.answer
         if(userInput === dbAnswer) {
             this.setState({response: "YEEEEEEEEE! Correct"})
         } else {
