@@ -4,7 +4,6 @@ import {Link, Redirect} from 'react-router-dom';
 
 import LoginForm from './login-form';
 import './landing-page.css';
-// import IconButton from 'material-ui/IconButton';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard

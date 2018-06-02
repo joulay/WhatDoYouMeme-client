@@ -3,7 +3,7 @@ import './questionform.css'
 import { connect } from 'react-redux';
 // import FloatingActionButton from 'material-ui/FloatingActionButton';
 // import ContentAdd from 'material-ui/svg-icons/content/add';
-import TextField from 'material-ui/TextField';
+// import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -48,7 +48,7 @@ class QuestionForm extends React.Component {
     }
 
     render() {
-       console.log('-------------------------------------------------[props]',this.props)
+
     return (
         <div className="question-form">
             <div className='image'>
@@ -59,10 +59,10 @@ class QuestionForm extends React.Component {
                     event.preventDefault()
                     this.props.onSubmit(event.target.answer.value)}}
                 className="form">
-                <TextField 
+                {/* <TextField 
                     hintText="name this meme"
                     floatingLabelText="Name"
-                    /><br />
+                    /><br /> */}
                 <input type="text" 
                     name="answer" 
                     id="answer" 
@@ -83,11 +83,6 @@ class QuestionForm extends React.Component {
 }
 
 const mapStateToProps = (state) =>{
-    console.log('this%%%%%%%%%%%%%%%%%%%%',state) 
-   
-    // if (this.state.question.currentQuestion.questions.length > 0) {
-    //      console.log('​mapStateToProps -> state.question.currentQuestion.questions ', state.question.currentQuestion.questions[0].img_url)
-    //   }
     return {
         username: state.auth.currentUser.username,
         currentQuestion: state.question.currentQuestion.questions       

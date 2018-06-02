@@ -29,8 +29,6 @@ export default function questionReducer(state = initialState, action) {
 	else if (action.type === actions.FETCH_LOAD_SUCCESS) {
 		return Object.assign({}, state, {
 			currentQuestion: action.question
-			// wrongTally: action.question.wrongTally,
-			// score: action.question.score
 		});
 	}
 	else if (action.type === actions.CHECK_ANSWER_REQUEST) {

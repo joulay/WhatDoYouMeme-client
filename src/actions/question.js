@@ -77,10 +77,6 @@ export const fetchQuestion = () => (dispatch, getState) => {
         return res.json();
       })
       .then(res => {
-        // let question = {
-        //   question: res.questions[0],
-        // }
-        console.log('********',res)
         dispatch(fetchQuestionSuccess(res));
 
       })
@@ -129,14 +125,12 @@ export const checkAnswer = (input) => (dispatch, getState) => {
       
   })
   .then(res => {
-    // console.log('alskjdalskjdalsjd', res.body)
       if(!res.ok) {
         throw new Error(res.statusTest)
       }
       return res.json()
   })
   .then(res => {
-    // console.log(res);
     let question = {
       question: res.question[0], 
       answer: res.answer
