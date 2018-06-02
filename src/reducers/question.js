@@ -19,7 +19,7 @@ export default function questionReducer(state = initialState, action) {
 	else if (action.type === actions.FETCH_QUESTION_SUCCESS) {
 		return Object.assign({}, state, {
 			loading: false,
-			currentQuestion: action.question
+			currentQuestion: action.question.questions[0]
 		});
     }
 	else if (action.type === actions.FETCH_QUESTION_ERROR) {

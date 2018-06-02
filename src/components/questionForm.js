@@ -68,7 +68,7 @@ class QuestionForm extends React.Component {
                     id="answer" 
                     value={this.state.input} onChange={(e)=>{this.handleChange(e)}} placeholder="name this meme"/>
                 <FlatButton label="submit" 
-                    mini={true} 
+                    // mini={true} 
                     onClick={()=>this.showNext()} 
                     type="submit"/>
                 {/* <FloatingActionButton style={style} 
@@ -92,7 +92,7 @@ const mapStateToProps = (state) =>{
     console.log('this%%%%%%%%%%%%%%%%%%%%',state)
     return {
         username: state.auth.currentUser.username,
-        // img_url:state.question.question.questions.questions[0]
+        // img_url: 
         
     }
 }
