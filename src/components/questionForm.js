@@ -91,9 +91,9 @@ class QuestionForm extends React.Component {
 const mapStateToProps = (state) =>{
     console.log('this%%%%%%%%%%%%%%%%%%%%',state) 
    
-    if (this.state.question.currentQuestion.questions.length > 0) {
-         console.log('​mapStateToProps -> state.question.currentQuestion.questions ', state.question.currentQuestion.questions[0].img_url)
-      }
+    // if (this.state.question.currentQuestion.questions.length > 0) {
+    //      console.log('​mapStateToProps -> state.question.currentQuestion.questions ', state.question.currentQuestion.questions[0].img_url)
+    //   }
     return {
         username: state.auth.currentUser.username,
         // img_url: state.question.currentQuestion.questions       
