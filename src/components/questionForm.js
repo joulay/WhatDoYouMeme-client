@@ -52,7 +52,7 @@ class QuestionForm extends React.Component {
     return (
         <div className="question-form">
             <div className='image'>
-                <img className="meme-pics" src={this.props.propQuestion.img_url} alt="meme"/>
+                <img className="meme-pics" src={this.props.currentQuestion && this.props.currentQuestion[0].img_url} alt="meme"/>
             </div>
             <form 
                 onSubmit={(event) =>{ 
@@ -71,12 +71,6 @@ class QuestionForm extends React.Component {
                     // mini={true} 
                     onClick={()=>this.showNext()} 
                     type="submit"/>
-                {/* <FloatingActionButton style={style} 
-                    mini={true} 
-                    onClick={()=>this.showNext()} 
-                    type="submit">
-                    <ContentAdd />
-                </FloatingActionButton> */}
             </form>
             <br/>
             <br/>
@@ -96,7 +90,7 @@ const mapStateToProps = (state) =>{
     //   }
     return {
         username: state.auth.currentUser.username,
-        // img_url: state.question.currentQuestion.questions       
+        currentQuestion: state.question.currentQuestion.questions       
     }
 }
 export default connect(mapStateToProps)(QuestionForm)

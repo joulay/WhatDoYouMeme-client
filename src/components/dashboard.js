@@ -23,28 +23,27 @@ export class Dashboard extends React.Component {
         await this.loadNext();
     }
 
-    loadNext() {
+    async loadNext() {
         this.props.dispatch(fetchLoad(this.props.questionArray[this.state.currentQuestion]));
         this.setState({ //not async so using this as argument 
-            currentQuestion: this.state.currentQuestion + 1
-            
-        // },()=> {
-        //     //called when state is updated
+            currentQuestion: this.state.currentQuestion + 1,
+            response: ""
         })
-        
+        await this.props.dispatch(fetchQuestion());  
 
     }
 
     async onSubmit(input) {
         const userInput = input
-        const dbAnswer = this.props.currentQuestion.answer
+        console.log('abc', this.props.currentQuestion)
+        const dbAnswer = this.props.currentQuestion.questions[0].answer
         if(userInput === dbAnswer) {
             this.setState({response: "YEEEEEEEEE! Correct"})
         } else {
             this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
         }
         await this.props.dispatch(checkAnswer(input))
-        await this.props.dispatch(fetchQuestion()); //every time user responds, re fetchQuestions
+         //every time user responds, re fetchQuestions
 
         
     }
@@ -71,7 +70,7 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
-    // console.log(state)
+    console.log("staaaaaaaaaate",state)
     return {
         username: state.auth.currentUser.username, name: `${currentUser.fullname}`,
         // protectedData: state.protectedData.data

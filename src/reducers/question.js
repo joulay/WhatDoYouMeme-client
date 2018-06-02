@@ -5,8 +5,6 @@ const initialState = {
 	currentQuestion: {},
 	loading: false,
 	error: null,
-	// wrongTally: "",
-	// score: "",
 
 };
 
@@ -53,9 +51,3 @@ export default function questionReducer(state = initialState, action) {
 
     return state;     
 }
-
-
-//find state where score is stored  where score gets rendered 
-//process action in where we want score
-//process action from server
-//and update in state 
