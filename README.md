@@ -6,7 +6,7 @@
 Back end code can be found <a href="https://github.com/JeffVega/space-rep-server"> here </a>
 
 ### Demo
-Username: demo
+Username: demo <br/>
 Password: password123
 
 ### Technologies: 
