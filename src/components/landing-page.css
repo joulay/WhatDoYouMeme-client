@@ -1,6 +1,13 @@
-.link{
+* {
+    box-sizing: border-box;
+
+}
+.register{
     display: flex;
     justify-content: center;
+}
+.register-link {
+    text-decoration: none;
 }
 
 .home p {
@@ -19,5 +26,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 20%;
 }
+
