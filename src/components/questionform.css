@@ -13,9 +13,19 @@
 }
 
 #answer {
-  width: 30%;
+  width: 50%;
   height: 32px;
   padding: 4px 11px;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
+  color: #1B4F72;
+  font-size: 17px;
+}
+
+.response {
+  color: #26A69A;  
+}
+
+p {
+  color: #80CBC4;
 }

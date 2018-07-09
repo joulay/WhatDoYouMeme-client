@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 export function Score(props) {
     return (
         <div className="score">
-            <p>correct: {props.correct}</p>
-            <p>incorrect: {props.incorrect}</p>
+            <p className="score-correct">correct: {props.correct}</p>
+            <p className="score-incorrect">incorrect: {props.incorrect}</p>
         </div>
     )
 }

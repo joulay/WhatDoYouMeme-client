@@ -70,7 +70,7 @@ class QuestionForm extends React.Component {
                     value={this.state.input} 
                     onChange={(e)=>{this.handleChange(e)}} 
                     placeholder="name this meme"/>
-                <RaisedButton 
+                <FlatButton 
                     label="submit" 
                     // mini={true} 
                     primary={true}
