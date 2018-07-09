@@ -7,9 +7,12 @@
 
 .yao {
     position: relative;
-    left: 78vw;
+    left: 75vw;
 }
 
+.home {
+    position: relative;
+}
 
 .landing-page-info {
     /* text-transform: uppercase; */
@@ -17,7 +20,7 @@
     animation-fill-mode: backwards;
     text-align: right;
     margin-top: 0;
-    margin-right: 3%;
+    margin-right: 5%;
     font-size: 47px;
     color: #5D6D7E;
 }
@@ -28,7 +31,7 @@
     bottom: 0;
     text-align: left;
     color: #AEB6BF;
-    /* margin-left: 20px; */
+    margin-bottom: 20px;
 }
 
 .options {
@@ -43,7 +46,9 @@
     animation-duration: 5s;
     animation-timing-function: ease-in; 
     line-height: 1.7;
-    margin-right: 7%;
+    margin-right: 2%;
+
+    
 }
 
 .login-link:hover, .register-link:hover {
