@@ -63,12 +63,17 @@ class QuestionForm extends React.Component {
                     hintText="name this meme"
                     floatingLabelText="Name"
                     /><br /> */}
-                <input type="text" 
+                <input 
+                    type="text" 
                     name="answer" 
                     id="answer" 
-                    value={this.state.input} onChange={(e)=>{this.handleChange(e)}} placeholder="name this meme"/>
-                <FlatButton label="submit" 
+                    value={this.state.input} 
+                    onChange={(e)=>{this.handleChange(e)}} 
+                    placeholder="name this meme"/>
+                <RaisedButton 
+                    label="submit" 
                     // mini={true} 
+                    primary={true}
                     onClick={()=>this.showNext()} 
                     type="submit"/>
             </form>

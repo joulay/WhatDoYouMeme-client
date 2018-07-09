@@ -39,7 +39,7 @@ export class Dashboard extends React.Component {
         if(userInput === dbAnswer) {
             this.setState({response: "YEEEEEEEEE! Correct"})
         } else {
-            this.setState({response: `Incorrect. It's name is ${dbAnswer}`})
+            this.setState({response: `Incorrect. The name is ${dbAnswer}`})
         }
         await this.props.dispatch(checkAnswer(input))
 
@@ -50,7 +50,7 @@ export class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
-                    oh haaay {this.props.username}
+                    oh haaay, {this.props.username}!
                 </div>
                 <div className="img-question">
                 <QuestionForm onSubmit={(e)=>this.onSubmit(e)}
