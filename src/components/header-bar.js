@@ -35,8 +35,9 @@ export class HeaderBar extends React.Component {
         return (
             <div className="header">
                 <header>
-                    <h1 className="banner">what do you MEME?
+                    <h1 className="banner">WHAT DID YOU <br/> MEME?
                     </h1>
+                    <hr/>
                 </header>
                 <div className="logout-button">
                     {logOutButton}

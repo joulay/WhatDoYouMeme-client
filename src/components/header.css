@@ -1,3 +1,23 @@
+.banner {
+  text-align: left;
+  font-size: 16px;
+  color:#808B96;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+hr {
+  position: absolute;
+  width: 60px;
+  left: 55px;
+  top: 60px;
+}
+
+.logout-button{
+  float: right;
+  margin-right: 0.2em;
+}
+/* 
 .header-bar{
   float: right
 }
@@ -5,11 +25,7 @@
   text-align: center;
 }
 
-.logout-button{
-  float: right;
-  margin-right: 0.2em;
-}
 
 .header{
   padding: 2% 5%;
-}
+} */
