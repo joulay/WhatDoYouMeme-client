@@ -1,0 +1,28 @@
+.home {
+    text-align: center;
+}
+
+.home-header {
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #1B4F72;
+    margin-top: 2rem;
+}
+
+.container {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #28B463;
+
+}
+
+.link:hover {
+    color: #82E0AA;
+}
+
+.login-form {
+    margin-top: 2rem;
+}
