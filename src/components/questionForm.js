@@ -25,7 +25,7 @@ class QuestionForm extends React.Component {
             isHidden: false
         })
     }
-    handleChange=(e)=> {    
+    handleChange=(e)=> {   
         this.setState({     
             input: e.target.value   
         }) 
@@ -48,7 +48,6 @@ class QuestionForm extends React.Component {
     }
 
     render() {
-
     return (
         <div className="question-form">
             <div className='image'>

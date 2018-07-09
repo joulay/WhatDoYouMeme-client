@@ -35,9 +35,10 @@ export class Dashboard extends React.Component {
 
     async onSubmit(input) {
         const userInput = input
-        const dbAnswer = this.props.currentQuestion.questions[0].answer
+        const dbAnswer = this.props.currentQuestion.questions[0].answer;
         if(userInput === dbAnswer) {
             this.setState({response: "YEEEEEEEEE! Correct"})
+            
         } else {
             this.setState({response: `Incorrect. The name is ${dbAnswer}`})
         }
@@ -47,13 +48,17 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
                     oh haaay, {this.props.username}!
                 </div>
                 <div className="img-question">
-                <QuestionForm onSubmit={(e)=>this.onSubmit(e)}
+                <QuestionForm onSubmit={(e)=> {
+                    // console.log(e)
+                    this.onSubmit(e)
+                    }}
                     proploadNext={this.loadNext}
                     propQuestion={this.props.currentQuestion} />
                 </div>
