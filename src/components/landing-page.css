@@ -43,9 +43,11 @@
     animation-duration: 5s;
     animation-timing-function: ease-in; 
     line-height: 1.7;
-    margin-right: 2%;
+    margin-right: 12%;   
+}
 
-    
+.options {
+    margin-top: 2rem;
 }
 
 .login-link:hover, .register-link:hover {
