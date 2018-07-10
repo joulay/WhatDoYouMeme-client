@@ -34,7 +34,7 @@ export class Dashboard extends React.Component {
     }
 
     async onSubmit(input) {
-        // const userInput = input
+        const userInput = input
         // console.log(this.props.currentQuestion.questions)
         const dbAnswer = this.props.currentQuestion.questions[0].answer;
         if(userInput === dbAnswer) {
