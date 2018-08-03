@@ -25,10 +25,11 @@
 .spaced-rep-info {
     font-size: 12px;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     text-align: left;
     color: #AEB6BF;
-    margin-bottom: 20px;
+
+    margin-left: 5px;
 }
 
 .options {
@@ -77,34 +78,11 @@
         transform: translate(0); 
     }
 }
-/* * {
-    box-sizing: border-box;
 
+@media only screen and (max-width: 420px) {
+    .spaced-rep-info {
+        position: relative;
+        bottom: 10px;
+        padding-top: 35px;
+    }
 }
-.register{
-    display: flex;
-    justify-content: center;
-}
-.register-link {
-    text-decoration: none;
-}
-
-.home p {
-    text-align: center;
-}
-
-.home h2{
-    text-align: center;
-}
-
-.home {
-    padding: 5% 0;
-}
-
-.yao {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-}
- */
