@@ -9,6 +9,9 @@ Back end code can be found <a href="https://github.com/JeffVega/space-rep-server
 Username: demo <br/>
 Password: password
 
+### Screenshot
+<img width="1365" alt="whatdoyoumemedashboard" src="https://user-images.githubusercontent.com/24361293/43941943-ea9a49b2-9c2a-11e8-840e-66db46cab476.png">
+
 ### Technologies: 
 - Javascript 
 - CSS3 
